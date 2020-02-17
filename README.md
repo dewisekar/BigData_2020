@@ -23,14 +23,14 @@ Kemungkinan proses yang dapat dilakukan pada data ini:
   
 ### Data Preparation
 * Dataset awal
-<img src="https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/dataset-awal.PNG" width="80%">
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/dataset-awal.PNG)
 Dataset di atas akan disimpan dalam bentuk CSV yang selanjutnya akan dibagi menjadi 2 bagian
 
 * Pemisahan Dataset
 Pemisahan dataset pada tugas ini dilakukan dengan KNIME dengan langkah-langkah berikut
   1. Pembacaan file CSV dataset
   Pembacaan file CSV dilakukan dengan menggunakan csv reader
-  <img src="https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/csv-reader.PNG">
+  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/csv-reader.PNG)
   
 
 ### Modeling
