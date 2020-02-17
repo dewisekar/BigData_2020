@@ -5,8 +5,8 @@
 * [Data Preparation](#data-preparation)
 * [Modeling](#modeling)
 * [Evaluation](#evaluation)
-* [Deployment](#deployment)
-
+* [Deployment](#deployment)<br>
+Dataset asli: [vgsales.csv](https://github.com/dewisekar/BigData_Tugas1/blob/master/vgsales.csv)<br>
 ## Business Understanding
 Kemungkinan proses yang dapat dilakukan pada data ini:
 1. Dari data tersebut, dapat didapatkan platform game yang paling banyak memiliki game dengan penjualan lebih dari 100.000 copy
@@ -82,8 +82,9 @@ Pemisahan dataset pada tugas ini dilakukan dengan KNIME dengan langkah-langkah b
   Sehingga, tabel SQL hasil penyimpanan dapat dilihat sebagai berikut:<br>
   ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/bottom.PNG)</br>
 
-Sehingga, setelah melalui proses di atas, maka dataset awal telah berhasil dibagi menjadi dua dan disimpan di tempat yang berbeda<br>  
-    
+Sehingga, setelah melalui proses di atas, maka dataset awal telah berhasil dibagi menjadi dua dan disimpan di tempat yang berbeda. Workflow keseluruhan sebagai berikut:<br>  
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/full.PNG)</br>
+
 ## Modeling
 ## Evaluation
 ## Deployment
