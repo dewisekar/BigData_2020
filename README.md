@@ -1,12 +1,19 @@
 ## Dokumentasi Praktek ETL menggunakan KNIME
 
-### Business Understanding
+* [Business Understanding](#business-understanding)
+* [Data Understanding](#data-understanding)
+* [Data Preparation](#data-preparation)
+* [Modeling](#modeling)
+* [Evaluation](#evaluation)
+* [Deployment](#deployment)
+
+## Business Understanding
 Kemungkinan proses yang dapat dilakukan pada data ini:
 1. Dari data tersebut, dapat didapatkan platform game yang paling banyak memiliki game dengan penjualan lebih dari 100.000 copy
 2. Dari data tersebut, dapat didapatkan perusahaan publisher yang paling banyak memiliki game dengan penjualan lebih dari 100.000 copy
 3. Dari data tersebut, dapat didapatkan genre game yang paling banyak memiliki game dengan penjualan lebih dari 100.000 copy
 
-### Data Understanding
+## Data Understanding
 * Dataset ini merupakan data penjualan dari game-game berbagai platform dari tahun 1980 hingga 2016
 * Dataset ini terdiri dari 11 kolom yaitu:
   1. Rank - Ranking dari penjualan secara keseluruhan
@@ -21,7 +28,7 @@ Kemungkinan proses yang dapat dilakukan pada data ini:
   10. Other_Sales - Angka penjualan di wilayah selain ke tiga wilayah di atas pada seluruh dunia (dalam juta)
   11. Global_Sales - Angka penjualan global (dalam juta)
   
-### Data Preparation
+## Data Preparation
 * Dataset awal
 ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/dataset-awal.PNG)
 Dataset di atas akan disimpan dalam bentuk CSV yang selanjutnya akan dibagi menjadi 2 bagian
@@ -46,19 +53,37 @@ Pemisahan dataset pada tugas ini dilakukan dengan KNIME dengan langkah-langkah b
   ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/tabel-rowid.PNG)</br>
   
   3. Membagi kolom-kolom tersebut menjadi dua bagian</br>
-    Bagian ini dilakukan dengan menggunakan node "Column Splitter"</br>
+    Bagian ini dilakukan dengan menggunakan node "Column Splitter" yang dihubungkan dengan node "RowId"</br>
     ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/column-splitter.PNG)</br>
-  
-    Lalu, node tersebut akan dilakukan pengaturan sebagai berikut:</br>
-  
+    Lalu, node tersebut akan dilakukan pengaturan sebagai berikut:</br>  
     ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/column-split-config.PNG)</br>
-  
+    Bagian kiri adalah kolom-kolom yang nantinya akan disimpan ke dalam file CSV, sedangkan bagian kanan adalah kolom-kolom yang akan disimpan pada database SQL. Preview dari kolom sebelah kiri bisa dilihat pada gambar berikut:<br>
+    ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/splitted-upper.PNG)</br>
+    Sedangkan, untuk kolom bagian kanan dapat dilihat pada gambar berikut:</br>
+    ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/splitted-bottom.PNG)</br>
     
+  4. Menyimpan file pada CSV <br>
+  Dataset yang sudah dipisah menjadi dua, selanjutnya akan disimpan pada CSV untuk bagian pertama. Penyimpanan akan dilakukan dengan cara menggunakan node "CSV Writer" yang disambungkan pada node "Column Splitter" bagian atas. <br>
+  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/csv-writer.PNG)</br>
+  Lalu, node tersebut diatur tempat penyimpanan file CSV yang akan dibuat sebagai berikut:<br>
+  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/csv-writer-config.PNG)</br>
+  Sehingga, CSV hasil dari penyimpanan dapat dilihat sebagai berikut:<br>
+  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/csv-upper.PNG)</br>
   
-  
-  
-  
+ 5. Menyimpan file pada DB SQL<br>
+  Dataset yang sudah dipisah menjadi dua, selanjutnya akan disimpan pada CSV untuk bagian kedua. Penyimpanan akan dilakukan dengan cara menggunakan node "DB Writer" yang disambungkan pada node "Column Splitter" bagian atas dan MySQL Connector.<br>
+  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/sql-connector.PNG)</br>
+  Pengaturan untuk MySQL connector sebagai berikut:<br?
+  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/sql-connector-config.PNG)</br>
+  MySql connector disambungkan kepada database yang sudah disediakan sebelumnya. Selanjutnya, menghubungkan node "DB Writer" dengan node MySql Connector dan Column Splitter bagian bawah/<br>
+  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/db-writer.PNG)</br>
+  Pada node DB Writer, dilakukan pengaturan untuk memilih tabel, dan kolom-kolom yang akan dieksport menjadi tabel SQL sebagai berikut:<br>
+  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/db-writer-config.PNG)</br>
+  Sehingga, tabel SQL hasil penyimpanan dapat dilihat sebagai berikut:<br>
+  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/bottom.PNG)</br>
 
-### Modeling
-### Evaluation
-### Deployment
+Sehingga, setelah melalui proses di atas, maka dataset awal telah berhasil dibagi menjadi dua dan disimpan di tempat yang berbeda<br>  
+    
+## Modeling
+## Evaluation
+## Deployment
