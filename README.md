@@ -46,8 +46,14 @@ Pemisahan dataset pada tugas ini dilakukan dengan KNIME dengan langkah-langkah b
   ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/tabel-rowid.PNG)</br>
   
   3. Membagi kolom-kolom tersebut menjadi dua bagian</br>
-  Bagian ini dilakukan dengan menggunakan node "Column Splitter"</br>
-  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/column-splitter.PNG)</br>
+    Bagian ini dilakukan dengan menggunakan node "Column Splitter"</br>
+    ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/column-splitter.PNG)</br>
+  
+    Lalu, node tersebut akan dilakukan pengaturan sebagai berikut:</br>
+  
+    ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/column-split-config.PNG)</br>
+  
+    
   
   
   
