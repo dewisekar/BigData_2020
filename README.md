@@ -61,16 +61,24 @@ Pemisahan dataset pada tugas ini dilakukan dengan KNIME dengan langkah-langkah b
     ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/splitted-upper.PNG)</br>
     Sedangkan, untuk kolom bagian kanan dapat dilihat pada gambar berikut:</br>
     ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/splitted-bottom.PNG)</br>
-    
-  4. Menyimpan file pada CSV <br>
-  Dataset yang sudah dipisah menjadi dua, selanjutnya akan disimpan pada CSV untuk bagian pertama. Penyimpanan akan dilakukan dengan cara menggunakan node "CSV Writer" yang disambungkan pada node "Column Splitter" bagian atas. <br>
+  
+  4. Resorter Kolom<br>
+  Untuk mempermudah pengolahan data, maka kolom "Rank" dipindah ke bagian depan menggunakan node "Column Resorter" yang dihubungkan dengan "Column Splitter" bagian atas.<br>
+  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/column-splitter.PNG)</br>
+  Pada node tersebut, kolom Rank diatur menjadi bagian paling pertama sebagai berikut. <br>
+   ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/column-resorter-config.PNG)</br>
+   Sehingga, hasil tabel setelah mengalami resorter adalah seperti ini<br>
+   ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/column-resorter-hasil.PNG)</br>
+   
+  5. Menyimpan file pada CSV <br>
+  Dataset yang sudah dipisah menjadi dua, selanjutnya akan disimpan pada CSV untuk bagian pertama. Penyimpanan akan dilakukan dengan cara menggunakan node "CSV Writer" yang disambungkan pada node "Column Resorter" bagian atas. <br>
   ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/csv-writer.PNG)</br>
   Lalu, node tersebut diatur tempat penyimpanan file CSV yang akan dibuat sebagai berikut:<br>
   ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/csv-writer-config.PNG)</br>
   Sehingga, CSV hasil dari penyimpanan dapat dilihat sebagai berikut:<br>
   ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/csv-upper.PNG)</br>
   
- 5. Menyimpan file pada DB SQL<br>
+ 6. Menyimpan file pada DB SQL<br>
   Dataset yang sudah dipisah menjadi dua, selanjutnya akan disimpan pada CSV untuk bagian kedua. Penyimpanan akan dilakukan dengan cara menggunakan node "DB Writer" yang disambungkan pada node "Column Splitter" bagian atas dan MySQL Connector.<br>
   ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/sql-connector.PNG)</br>
   Pengaturan untuk MySQL connector sebagai berikut:<br?
