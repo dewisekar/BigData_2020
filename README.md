@@ -1,12 +1,19 @@
 ## Dokumentasi Praktek ETL menggunakan KNIME
 
-### Business Understanding
+* [Business Understanding](#business-understanding)
+* [Data Understanding](#data-understanding)
+* [Data Preparation](#data-preparation)
+* [Modeling](#modeling)
+* [Evaluation](#evaluation)
+* [Deployment](#deployment)
+
+## Business Understanding
 Kemungkinan proses yang dapat dilakukan pada data ini:
 1. Dari data tersebut, dapat didapatkan platform game yang paling banyak memiliki game dengan penjualan lebih dari 100.000 copy
 2. Dari data tersebut, dapat didapatkan perusahaan publisher yang paling banyak memiliki game dengan penjualan lebih dari 100.000 copy
 3. Dari data tersebut, dapat didapatkan genre game yang paling banyak memiliki game dengan penjualan lebih dari 100.000 copy
 
-### Data Understanding
+## Data Understanding
 * Dataset ini merupakan data penjualan dari game-game berbagai platform dari tahun 1980 hingga 2016
 * Dataset ini terdiri dari 11 kolom yaitu:
   1. Rank - Ranking dari penjualan secara keseluruhan
@@ -21,7 +28,7 @@ Kemungkinan proses yang dapat dilakukan pada data ini:
   10. Other_Sales - Angka penjualan di wilayah selain ke tiga wilayah di atas pada seluruh dunia (dalam juta)
   11. Global_Sales - Angka penjualan global (dalam juta)
   
-### Data Preparation
+## Data Preparation
 * Dataset awal
 ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/dataset-awal.PNG)
 Dataset di atas akan disimpan dalam bentuk CSV yang selanjutnya akan dibagi menjadi 2 bagian
@@ -77,6 +84,6 @@ Pemisahan dataset pada tugas ini dilakukan dengan KNIME dengan langkah-langkah b
 
 Sehingga, setelah melalui proses di atas, maka dataset awal telah berhasil dibagi menjadi dua dan disimpan di tempat yang berbeda<br>  
     
-### Modeling
-### Evaluation
-### Deployment
+## Modeling
+## Evaluation
+## Deployment
