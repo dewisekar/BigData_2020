@@ -28,9 +28,29 @@ Dataset di atas akan disimpan dalam bentuk CSV yang selanjutnya akan dibagi menj
 
 * Pemisahan Dataset
 Pemisahan dataset pada tugas ini dilakukan dengan KNIME dengan langkah-langkah berikut
-  1. Pembacaan file CSV dataset
-  Pembacaan file CSV dilakukan dengan menggunakan csv reader
-  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/csv-reader.PNG)
+  1. Pembacaan file CSV dataset</br>
+  Pembacaan file CSV dilakukan dengan menggunakan csv reader</br>
+  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/csv-reader.PNG)</br>
+  Saat melakukan konfigurasi pembacaan CSV, dilakukan pengaturan sebagai berikut</br>
+  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/add-file-csv.PNG)</br>
+  Pada pengaturan tersebut, artinya menerangkan bahwa dataset memiliki baris judul, dan kolom "Rank" akan dianggap sebagai RowId pada KNIME sehingga dibutuhkan duplikasi kolom Rank pada tahap selanjutnya.</br>
+  Hasil dari pembacaan file CSV dataset awal sebagai berikut:<br>
+  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/tabel-read.PNG)</br>
+  
+  2. Duplikasi kolom "Rank"</br>
+  Karena saat import CSV kolom "Rank" dianggap sebagai RowId, padahal kolom "Rank" memiliki nilai berbeda dengan RowId, sehingga kolom "Rank" butuh untuk dibuat lagi dengan mengambil nilai dari kolom RowId. Pada bagian ini akan menggunakan fungsi "RowId" seperti gambar di bawah.</br>
+  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/row-id.PNG)</br>
+  Node tersebut digabungkan pada node CSV reader sebelumnya, dengan konfigurasi seperti berikut:</br>
+  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/add-rowid.PNG)</br>
+  Arti dari pengaturan di atas adalah, akan dibuat sebuah kolom baru dengan nama "Rank" dengan mengambil nilai dari kolom RowId. Hasil dari penambahan kolom dapat dilihat pada gambar di bawah.</br>
+  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/tabel-rowid.PNG)</br>
+  
+  3. Membagi kolom-kolom tersebut menjadi dua bagian</br>
+  Bagian ini dilakukan dengan menggunakan node "Column Splitter"</br>
+  ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/column-splitter.PNG)</br>
+  
+  
+  
   
 
 ### Modeling
