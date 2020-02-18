@@ -155,3 +155,25 @@ Sehingga, tabel yang telah di resort adalah sebagai berikut.<br>
 * Dari gambar di atas, dapat disimpulkan bahwa tabel hasil join sama dengan tabel dataset awal.<br>
 
 ## Deployment
+### Penyimpanan ke file CSV
+* Penyimpanan dilakukan dengan node CSV Writer
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/deployment/csv-writer.PNG)</br>
+* Node ini disambungkan dengan node Column Resorter
+* Pengaturan node ini sebagai berikut.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/deployment/csv-writer-config.PNG)</br>
+Arti dari pengaturan tersebut adalah, tabel ini akan disimpan dengan nama videogamesales_joined.csv dan baris judul akan dicetak pada file CSV.
+* Hasil file CSV sebagai berikut.
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/deployment/csv-writer-hasil.PNG)</br>
+
+### Penyimpanan ke DB MySQL
+* Penyimpanan dilakukan dengan menggunakan node DB Writer
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/deployment/db-writer.PNG)</br>
+* Node ini disambungkan dengan node Column Resorter dan MySQL Connector yang telah diatur saat modelling.
+* Pengaturan node ini sebagai berikut.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/deployment/db-writer-config.PNG)</br>
+Arti dari pengaturan tersebut adalah, semua kolom akan diexport ke dalam DB dan akan disimpan ke dalam tabel bernama videogamesales_joined.<br>
+* Hasil dari penyimpanan database sebagai berikut.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/deployment/db-writer-hasil.PNG)</br>
+
+Untuk workflow secara keseluruhan sebagai berikut:<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/full.PNG)</br>
