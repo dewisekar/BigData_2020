@@ -156,7 +156,7 @@ Sehingga, tabel yang telah di resort adalah sebagai berikut.<br>
 
 ## Deployment
 ### Penyimpanan ke file CSV
-* Penyimpanan dilakukan dengan node CSV Writer
+* Penyimpanan dilakukan dengan node CSV Writer<br>
 ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/deployment/csv-writer.PNG)</br>
 * Node ini disambungkan dengan node Column Resorter
 * Pengaturan node ini sebagai berikut.<br>
@@ -166,7 +166,7 @@ Arti dari pengaturan tersebut adalah, tabel ini akan disimpan dengan nama videog
 ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/deployment/csv-writer-hasil.PNG)</br>
 
 ### Penyimpanan ke DB MySQL
-* Penyimpanan dilakukan dengan menggunakan node DB Writer
+* Penyimpanan dilakukan dengan menggunakan node DB Writer<br>
 ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/deployment/db-writer.PNG)</br>
 * Node ini disambungkan dengan node Column Resorter dan MySQL Connector yang telah diatur saat modelling.
 * Pengaturan node ini sebagai berikut.<br>
