@@ -118,18 +118,40 @@ Setelah melakukan proses di atas, maka data yang dibaca dari file CSV siap untuk
 MySql connector disambungkan kepada database berisi bagian dataset lainnya yang sudah disediakan sebelumnya. Pengaturaannya adalah sebagai berikut.<br>
 ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/mysql-connector-config.PNG)</br>
 2. Melakukan pemilihan tabel
-DB yang sudah terkoneksi akan dipilih tabel yang akan dibaca. Pemilihan tabel dilakukan dengan menggunakan node DB Table Selector.<br>
+DB yang sudah terkoneksi akan dipilih tabel yang akan dibaca. Pemilihan tabel dilakukan dengan menggunakan node DB Table Selector. Node ini disambungkan dengan node MySQL connector.<br>
 ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/table-selector.PNG)</br>
 Tabel yang dipilih adalah table videogamesales_bottom sehingga pengaturannya sebagai berikut.<br>
 ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/table-selector-config.PNG)</br>
 Hasil dari pemilihan tabel dapat dilihat pada gambar di bawah ini.<br>
 ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/table-selector-hasil.PNG)</br>
 3. Melakukan DB Reader
-Tabel yang sudah dipilih harus melalui proses DB Reader agar bisa dilakukan proses join pada langkah selanjutnya. Proses ini menggunakan node DB Reader.<br>
+Tabel yang sudah dipilih harus melalui proses DB Reader agar bisa dilakukan proses join pada langkah selanjutnya. Proses ini menggunakan node DB Reader. Node ini disambungkan pada node DB Table Selector.<br>
 ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/db-reader.PNG)</br>
 Pengaturan DB Reader dapat dilihat pada gambar berikut.<br>
 ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/db-reader-config.PNG)</br>
 Sehingga, setelah dilakukan DB Reader maka hasil tabelnya sebagai berikut./<br>
 ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/db-reader-hasil.PNG)</br>
+
+### Melakukan Join Table
+Kedua sumber dataset yang sudah berhasil dibaca pada KNIME, selanjutnya akan dijoinkan dengan node Joiner. Node joiner disambungkan dengan node RowId yang terhubung dengan CSV reader dan dengan node DB Table Reader.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/joiner.PNG)</br>
+Node joiner diatur dengan memilih kolom mana yang merupakan primary key dan foreign key dari setiap sumber dataset sehingga data dapat dijoinkan. Pada kasus ini, proses join dilakukan berdasarkan kolom RowId.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/joiner-config.PNG)</br>
+Sehingga, tabel hasil join merupakan sebagai berikut.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/joiner-hasil.PNG)</br>
+Untuk merapikan tabel, maka kolom Rank akan dipindah ke posisi semula yaitu di paling depan dataset dengan menggunakan Colum Resorter.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/resorter.PNG)</br>
+Pengaturan column resorter dapat dilihat pada gambar di bawah.
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/resorter-config.PNG)</br>
+Sehingga, tabel yang telah di resort adalah sebagai berikut.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/resorter-hasil.PNG)</br>
+
 ## Evaluation
+* Tabel yang berhasil melalui proses join akan dibandngkan dengan file dataset asli.
+* Tabel hasil join:<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/resorter-hasil.PNG)</br>
+* Tabel asli
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/deployment/csvasli.PNG)</br>
+* Dari gambar di atas, dapat disimpulkan bahwa tabel hasil join sama dengan tabel dataset awal.<br>
+
 ## Deployment
