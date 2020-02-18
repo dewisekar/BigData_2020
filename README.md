@@ -7,6 +7,7 @@
 * [Evaluation](#evaluation)
 * [Deployment](#deployment)<br>
 Dataset asli: [vgsales.csv](https://github.com/dewisekar/BigData_Tugas1/blob/master/vgsales.csv)<br>
+
 ## Business Understanding
 Kemungkinan proses yang dapat dilakukan pada data ini:
 1. Dari data tersebut, dapat didapatkan platform game yang paling banyak memiliki game dengan penjualan lebih dari 100.000 copy
@@ -94,5 +95,41 @@ Sehingga, setelah melalui proses di atas, maka dataset awal telah berhasil dibag
 ![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/split/full.PNG)</br>
 
 ## Modeling
+### Pembacaan data dari sumber yang berbeda
+**Pembacaan dari file CSV**
+1. Pembacaan file CSV dilakukan dengan menggunakan node "CSV Reader" di bawah ini.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/csv-reader.PNG)</br>
+Pengaturan node tersebut dilakukan sebagai berikut.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/csv-reader-config.PNG)</br>
+Arti dari pengaturan tersebut adalah, mengambil file CSV bernama videogamesales_upper yang berisi kolom-kolom dataset yang telah dipisah menjadi bagian pertama. Lalu, pengaturan diatur bahwa file tersebut memiliki Column dan Row Header. Hal ini menyebabkan kolom Rank pada data akan dianggap sebagai RowId, padahal kolom Rank tidak sama dengan RowId. Sehingga dibutuhkan pembentukan kolom RowId ulang. Hasil dari pembacaan file CSV dapat dilihat pada gambar di bawah.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/csv-reader-hasil.PNG)</br>
+2. Penambahan RowId
+Penambahan RowId dilakukan dengan cara menggunakan node RowId. Hal ini dimaksudkan untuk membuat RowId baru dan mengembalikan kolom Rank dengan mengambil nilai yang sekarang dianggap sebagai nilai dari kolom RowId. Node ini disambungkan dengan node CSV Reader.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/rowid-2.PNG)</br>
+Pengaturan untuk menambahkan RowId dapat dilihat pada gambar berikut.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/rowid-2-config.PNG)</br>
+Arti dari pengaturan tersebut adalah akan dibuat kolom RowId baru, serta akan dibuat kolom bernama "Rank" dengan nilai dari kolom RowId saat ini. Hasil dari penambahan RowId dan Rank dapat dilihat pada gambar berikut.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/rowid-2-hasil.PNG)</br>
+Setelah melakukan proses di atas, maka data yang dibaca dari file CSV siap untuk dilakukan proses join.<br>
+
+**Pembacaan dari DB MySQL**
+1. Melakukan connect dengan MySQL connector<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/mysql-connector.PNG)</br>
+MySql connector disambungkan kepada database berisi bagian dataset lainnya yang sudah disediakan sebelumnya. Pengaturaannya adalah sebagai berikut.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/mysql-connector-config.PNG)</br>
+2. Melakukan pemilihan tabel
+DB yang sudah terkoneksi akan dipilih tabel yang akan dibaca. Pemilihan tabel dilakukan dengan menggunakan node DB Table Selector.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/table-selector.PNG)</br>
+Tabel yang dipilih adalah table videogamesales_bottom sehingga pengaturannya sebagai berikut.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/table-selector-config.PNG)</br>
+Hasil dari pemilihan tabel dapat dilihat pada gambar di bawah ini.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/table-selector-hasil.PNG)</br>
+3. Melakukan DB Reader
+Tabel yang sudah dipilih harus melalui proses DB Reader agar bisa dilakukan proses join pada langkah selanjutnya. Proses ini menggunakan node DB Reader.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/db-reader.PNG)</br>
+Pengaturan DB Reader dapat dilihat pada gambar berikut.<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/db-reader-config.PNG)</br>
+Sehingga, setelah dilakukan DB Reader maka hasil tabelnya sebagai berikut./<br>
+![image](https://github.com/dewisekar/BigData_Tugas1/blob/master/images/modelling/db-reader-hasil.PNG)</br>
 ## Evaluation
 ## Deployment
